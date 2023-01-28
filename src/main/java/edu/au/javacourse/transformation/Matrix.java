@@ -16,7 +16,6 @@ public class Matrix {
         double[][] res = new double[lines][row];
         for (int i = 0; i < lines; i++){
             for (int j = 0; j < row; j++){
-                res[i][j] = 0.;
                 for (int k = 0; k < numTerms; k++){
                     res[i][j] += this.data[i][k]*other.data[k][j];
                 }

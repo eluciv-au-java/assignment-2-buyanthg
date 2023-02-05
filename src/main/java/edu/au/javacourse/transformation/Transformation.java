@@ -1,3 +1,5 @@
+package edu.au.javacourse.transformation;
+
 public interface Transformation {
-    public Point apply(Point p);
+    Point apply(Point p);
 }

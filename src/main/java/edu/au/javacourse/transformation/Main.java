@@ -65,14 +65,14 @@ public class Main {
 		}
 		*/
         AffineTrasformation transformer = new AffineTrasformation();
-        for (inputTransformations inputItem: inputTransformations){
+        for (InputTransformation inputItem: inputTransformations) {
             AffineTrasformation t =
                     switch (inputItem.getType()) {
                         case "rotate" -> new Rotation(Math.toRadians(inputItem.getAlpha()));
                         case "translate" -> new Translation(inputItem.getDx(), inputItem.getDy());
                         case "scale" -> new Scaling(inputItem.getKx(), inputItem.getKy());
                         default -> throw new RuntimeException("Неизвестный тип трансформации");
-                    }
+                    };
             transformer = transformer.thenDo(t);
         }
 
@@ -87,14 +87,14 @@ public class Main {
         double x = Double.parseDouble(args[1]);
         double y = Double.parseDouble(args[2]);
         // 1) TODO создаем объект Point
-        Point p = new Point(x,y);
+        Point p = new Point(x, y);
         // 2) TODO применяем трансформацию к созданной точке
         p = transformer.apply(p);
-        double result_x = p.getX();
-        double result_y = p.getY();
+        double resultX = p.getX();
+        double resultY = p.getY();
 
         // 3) TODO Выводим результат на печать в формате (result_x, result_y). Например: (2.5, -3.998)
-        System.out.printf("%f, %f", result_x, result_y);
+        System.out.printf("%f, %f", resultX, resultY);
     }
 
 }
